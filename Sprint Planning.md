@@ -11,7 +11,7 @@ Objectif : livrer progressivement une **boucle de gameplay complète** en 3 spri
 
 ## User Stories
 
-### Lancer une partie tactique
+### Lancer une partie
 - Lancer une partie sur une grille (3)
 
 ### Composition d’équipe

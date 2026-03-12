@@ -1,175 +1,253 @@
 # User Stories — Grid Fight Tactics
 
-## Epic — Jouer une partie tactique en duel
+## Duel tactique sur grille
+
+**Complexité : 3**
 
 En tant que **joueur**,  
-je veux **affronter un adversaire dans un duel tactique sur une grille**,  
-afin de **vaincre son Commandant en combinant stratégie et esquive en temps réel**.
+je veux **jouer un duel tactique sur une grille**,  
+afin de **détruire le Commandant adverse**.
+
+### Actions principales
+
+- sélectionner une équipe
+- placer mes unités
+- planifier mes attaques
+- déplacer mes unités pour esquiver
+- gérer mon énergie
+- éliminer les unités ennemies
+- cibler le Commandant adverse
 
 ---
 
 # 1. Composition d’équipe
 
+**Complexité : 1**
+
 ## User Story
 
 En tant que **joueur**,  
-je veux **choisir 3 unités dans un roster avant la partie**,  
-afin de **créer une stratégie et des synergies adaptées à mon style de jeu**.
+je veux **sélectionner 3 unités dans un roster**.
 
-### Critères d’acceptation
+### Actions
 
-- Le joueur peut sélectionner **exactement 3 unités** dans un roster.
-- Chaque unité possède **des capacités et statistiques uniques**.
-- La sélection doit être **validée avant le début de la partie**.
-- Les deux joueurs composent leur équipe **indépendamment**.
+- ouvrir l’écran de sélection
+- parcourir la liste des unités
+- sélectionner une unité
+- désélectionner une unité
+- confirmer la composition
+
+### Règles
+
+- maximum **3 unités**
+- minimum **3 unités**
+- chaque unité possède :
+  - statistiques
+  - capacités
 
 ---
 
-# 2. Placement initial des unités
+# 2. Placement initial
+
+**Complexité : 2**
 
 ## User Story
 
 En tant que **joueur**,  
-je veux **placer mes unités sur la grille avant le début de la partie**,  
-afin de **préparer une stratégie de départ et anticiper l’adversaire**.
+je veux **placer mes unités sur la grille** avant le début du combat.
 
-### Critères d’acceptation
+### Actions
 
-- Les joueurs placent leurs unités **à tour de rôle**.
-- Le **Commandant est placé automatiquement dans un coin du plateau**.
-- Les zones de placement sont **limitées à la zone de départ du joueur**.
-- Une fois toutes les unités placées, **la partie commence**.
+- sélectionner une unité
+- choisir une case dans la zone de départ
+- placer l’unité sur la case
+- déplacer une unité déjà placée
+- confirmer le placement
+
+### Règles
+
+- placement **alterné entre joueurs**
+- placement limité à **la zone de départ**
+- le **Commandant est placé automatiquement**
 
 ---
 
 # 3. Gestion de l’énergie
 
+**Complexité : 1**
+
 ## User Story
 
 En tant que **joueur**,  
-je veux **disposer d’une ressource d’énergie à dépenser chaque tour**,  
-afin de **choisir quelles actions effectuer et prioriser mes unités**.
+je veux **dépenser de l’énergie pour mes actions**.
 
-### Critères d’acceptation
+### Actions
 
-- Chaque joueur reçoit **10 points d’énergie au début du tour**.
-- L’énergie peut être utilisée pour :
-  - activer des **attaques**
-  - utiliser des **capacités**
-  - **ressusciter une unité**
-- Le joueur ne peut **pas dépasser son énergie disponible**.
+- consulter mon énergie
+- activer une unité
+- utiliser une capacité
+- lancer une attaque
+- ressusciter une unité
+
+### Règles
+
+- **10 énergie par tour**
+- impossible de dépasser l’énergie disponible
 
 ---
 
 # 4. Phase de préparation (attaquant)
 
+**Complexité : 2**
+
 ## User Story
 
 En tant que **joueur attaquant**,  
-je veux **programmer les actions de mes unités avant le combat**,  
-afin de **planifier une stratégie offensive contre l’adversaire**.
+je veux **programmer les actions de mes unités**.
 
-### Critères d’acceptation
+### Actions
 
-- Le joueur peut **activer des unités en dépensant de l’énergie**.
-- Chaque unité activée peut :
-  - attaquer dans une **direction**
-  - cibler une **case**
-  - utiliser une **capacité spéciale**
-- Toutes les actions sont **verrouillées avant la phase de combat**.
-- Le défenseur **ne peut pas agir pendant cette phase**.
+- sélectionner une unité
+- activer l’unité (coût énergie)
+- choisir une action
+- définir une direction d’attaque
+- cibler une case
+- utiliser une capacité
+- confirmer les actions
+
+### Règles
+
+- actions **verrouillées avant combat**
+- défenseur **ne peut pas agir**
 
 ---
 
 # 5. Phase de combat (défenseur)
 
+**Complexité : 3**
+
 ## User Story
 
 En tant que **joueur défenseur**,  
-je veux **contrôler mes unités en temps réel pendant la phase de combat**,  
-afin de **esquiver les attaques et limiter les dégâts**.
+je veux **déplacer mes unités pendant le combat** pour esquiver.
 
-### Critères d’acceptation
+### Actions
 
-- La phase de combat dure **10 secondes**.
-- Les attaques programmées par l’attaquant **se déclenchent automatiquement**.
-- Le défenseur peut **déplacer ses unités sur la grille par drag & drop**.
-- Les unités ont une **limite de déplacement basée sur leurs statistiques**.
+- sélectionner une unité
+- drag l’unité sur la grille
+- déplacer l’unité vers une case
+- repositionner plusieurs unités
+- éviter les zones d’attaque
+
+### Règles
+
+- durée **10 secondes**
+- attaques **automatiques**
+- déplacement limité par :
+  - vitesse
+  - distance maximale
 
 ---
 
 # 6. Alternance des rôles
 
+**Complexité : 1**
+
 ## User Story
 
 En tant que **joueur**,  
-je veux **alterner entre les rôles d’attaquant et de défenseur**,  
-afin que **les deux joueurs aient les mêmes opportunités stratégiques**.
+je veux **alterner attaquant et défenseur**.
 
-### Critères d’acceptation
+### Actions
 
-- À chaque tour, les rôles **attaquant/défenseur s’inversent**.
-- Chaque joueur a l’opportunité **d’attaquer et de défendre régulièrement**.
+- jouer un tour en attaque
+- jouer un tour en défense
+
+### Règles
+
+- inversion des rôles à chaque tour
 
 ---
 
 # 7. Mort des unités
 
+**Complexité : 1**
+
 ## User Story
 
 En tant que **joueur**,  
-je veux **que les unités puissent être éliminées pendant le combat**,  
-afin que **les décisions tactiques aient un impact réel sur la partie**.
+je veux **que les unités puissent mourir**.
 
-### Critères d’acceptation
+### Actions
 
-- Les unités possèdent des **points de vie**.
-- Lorsqu’ils atteignent **0**, l’unité est **éliminée du plateau**.
+- subir des dégâts
+- atteindre 0 PV
+- retirer l’unité du plateau
+
+### Règles
+
+- une unité morte **ne peut plus agir**
 
 ---
 
-# 8. Résurrection d’unités
+# 8. Résurrection
+
+**Complexité : 2**
 
 ## User Story
 
 En tant que **joueur**,  
-je veux **pouvoir ramener une unité éliminée à la vie**,  
-afin de **récupérer une pièce stratégique au prix de l’énergie**.
+je veux **ressusciter une unité éliminée**.
 
-### Critères d’acceptation
+### Actions
 
-- Une unité morte peut être **ressuscitée en dépensant de l’énergie**.
-- L’unité réapparaît **dans la zone de départ du joueur**.
-- La résurrection empêche d’utiliser **cette énergie pour d’autres actions**.
+- ouvrir la liste des unités mortes
+- sélectionner une unité
+- payer le coût en énergie
+- faire apparaître l’unité
+
+### Règles
+
+- apparition dans **zone de départ**
+- coût en énergie obligatoire
 
 ---
 
 # 9. Condition de victoire
 
+**Complexité : 1**
+
 ## User Story
 
 En tant que **joueur**,  
-je veux **gagner en éliminant le Commandant adverse**,  
-afin que **la partie ait un objectif clair et stratégique**.
+je veux **gagner en détruisant le Commandant ennemi**.
 
-### Critères d’acceptation
+### Actions
 
-- Le Commandant possède des **points de vie**.
-- Lorsque ses PV atteignent **0**, la partie **se termine immédiatement**.
-- Le joueur adverse est **déclaré vainqueur**.
+- attaquer le Commandant
+- réduire ses PV à 0
+
+### Résultat
+
+- fin immédiate de la partie
+- victoire du joueur
 
 ---
 
 # 10. Expérience de duel rapide
 
+**Complexité : 2**
+
 ## User Story
 
 En tant que **joueur compétitif**,  
-je veux **des parties rapides et intenses**,  
-afin de **pouvoir enchaîner les matchs et améliorer ma stratégie**.
+je veux **des parties rapides et lisibles**.
 
-### Critères d’acceptation
+### Objectifs
 
-- Une partie dure **quelques minutes**.
-- Le rythme alterne **planification stratégique et action rapide**.
-- Les règles restent **simples mais offrent une profondeur tactique élevée**.
+- parties de **quelques minutes**
+- alternance :
+  - stratégie
+  - action
+- règles simples
+- profondeur tactique

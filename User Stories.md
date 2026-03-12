@@ -1,4 +1,4 @@
-# User Stories — Grid Fight Tactics (décomposition minimale)
+# User Stories — Grid Fight Tactics
 
 ---
 
@@ -6,7 +6,7 @@
 
 En tant que **joueur**  
 je veux **lancer une partie sur une grille**  
-afin de **vaincre le Commandant adverse**.
+afin de **vaincre le Commandant adverse**
 
 Complexité : 3
 
@@ -14,17 +14,17 @@ Complexité : 3
 
 # Composition d’équipe
 
-## Sélection d'une unité
+## Sélectionner une unité
 
 En tant que **joueur**  
 je veux **sélectionner une unité dans le roster**  
-afin de **l'ajouter à mon équipe**
+afin de **l’ajouter à mon équipe**
 
 Complexité : 1
 
 ---
 
-## Désélection d'une unité
+## Retirer une unité
 
 En tant que **joueur**  
 je veux **retirer une unité sélectionnée**  
@@ -34,21 +34,11 @@ Complexité : 1
 
 ---
 
-## Limitation du nombre d’unités
-
-En tant que **système**  
-je veux **limiter l’équipe à 3 unités**  
-afin de **respecter les règles du jeu**
-
-Complexité : 1
-
----
-
-## Validation de la composition
+## Confirmer mon équipe
 
 En tant que **joueur**  
-je veux **confirmer mon équipe**  
-afin de **commencer la phase suivante**
+je veux **confirmer mon équipe de 3 unités**  
+afin de **commencer la partie**
 
 Complexité : 1
 
@@ -56,7 +46,7 @@ Complexité : 1
 
 # Placement initial
 
-## Afficher la grille
+## Voir la grille
 
 En tant que **joueur**  
 je veux **voir la grille de jeu**  
@@ -66,7 +56,7 @@ Complexité : 1
 
 ---
 
-## Afficher la zone de placement
+## Voir ma zone de placement
 
 En tant que **joueur**  
 je veux **voir ma zone de départ**  
@@ -86,7 +76,7 @@ Complexité : 1
 
 ---
 
-## Placer une unité sur une case
+## Placer une unité
 
 En tant que **joueur**  
 je veux **placer une unité sur une case valide**  
@@ -96,39 +86,19 @@ Complexité : 1
 
 ---
 
-## Déplacer une unité placée
+## Modifier le placement
 
 En tant que **joueur**  
-je veux **changer la position d'une unité placée**  
+je veux **déplacer une unité déjà placée**  
 afin de **ajuster ma stratégie**
 
 Complexité : 1
 
 ---
 
-## Placement automatique du Commandant
-
-En tant que **système**  
-je veux **placer automatiquement le Commandant dans un coin**  
-afin de **respecter les règles de départ**
-
-Complexité : 1
-
----
-
-## Alternance de placement
-
-En tant que **système**  
-je veux **alterner le placement entre les joueurs**  
-afin de **équilibrer la phase de départ**
-
-Complexité : 2
-
----
-
 # Gestion de l’énergie
 
-## Afficher l’énergie
+## Voir mon énergie
 
 En tant que **joueur**  
 je veux **voir mon énergie disponible**  
@@ -138,31 +108,11 @@ Complexité : 1
 
 ---
 
-## Donner l’énergie au début du tour
+## Dépenser de l’énergie
 
-En tant que **système**  
-je veux **donner 10 énergie au début du tour**  
-afin de **permettre au joueur d’agir**
-
-Complexité : 1
-
----
-
-## Consommer de l’énergie
-
-En tant que **système**  
-je veux **réduire l’énergie lors d’une action**  
-afin de **appliquer le coût des actions**
-
-Complexité : 1
-
----
-
-## Bloquer une action sans énergie
-
-En tant que **système**  
-je veux **empêcher une action si l’énergie est insuffisante**  
-afin de **respecter les règles**
+En tant que **joueur**  
+je veux **utiliser mon énergie pour des actions**  
+afin de **activer mes unités**
 
 Complexité : 1
 
@@ -172,8 +122,8 @@ Complexité : 1
 
 ## Sélectionner une unité active
 
-En tant que **joueur attaquant**  
-je veux **choisir une unité active**  
+En tant que **joueur**  
+je veux **sélectionner une unité**  
 afin de **lui assigner une action**
 
 Complexité : 1
@@ -182,9 +132,9 @@ Complexité : 1
 
 ## Programmer une attaque directionnelle
 
-En tant que **joueur attaquant**  
+En tant que **joueur**  
 je veux **choisir une direction d’attaque**  
-afin de **définir la zone touchée**
+afin de **attaquer une ligne ou une zone**
 
 Complexité : 2
 
@@ -192,17 +142,17 @@ Complexité : 2
 
 ## Programmer une attaque ciblée
 
-En tant que **joueur attaquant**  
+En tant que **joueur**  
 je veux **choisir une case cible**  
-afin de **déterminer l’endroit de l’attaque**
+afin de **attaquer une position précise**
 
 Complexité : 2
 
 ---
 
-## Programmer une capacité
+## Utiliser une capacité
 
-En tant que **joueur attaquant**  
+En tant que **joueur**  
 je veux **activer une capacité d’unité**  
 afin de **produire un effet spécial**
 
@@ -210,11 +160,11 @@ Complexité : 2
 
 ---
 
-## Verrouiller les actions
+## Confirmer mes actions
 
-En tant que **système**  
-je veux **verrouiller les actions programmées**  
-afin de **lancer la phase de combat**
+En tant que **joueur**  
+je veux **valider les actions programmées**  
+afin de **démarrer la phase de combat**
 
 Complexité : 1
 
@@ -222,42 +172,22 @@ Complexité : 1
 
 # Phase de combat
 
-## Démarrer le timer de combat
+## Voir les attaques se déclencher
 
-En tant que **système**  
-je veux **lancer un timer de 10 secondes**  
-afin de **limiter la phase de combat**
-
-Complexité : 1
-
----
-
-## Exécuter les attaques programmées
-
-En tant que **système**  
-je veux **déclencher les attaques programmées**  
-afin de **appliquer les actions du joueur attaquant**
+En tant que **joueur**  
+je veux **voir les attaques programmées s’exécuter**  
+afin de **observer le résultat de mes actions**
 
 Complexité : 2
 
 ---
 
-## Appliquer les dégâts
-
-En tant que **système**  
-je veux **réduire les PV d'une unité touchée**  
-afin de **représenter les dégâts**
-
-Complexité : 1
-
----
-
-# Déplacement du défenseur
+# Déplacement en défense
 
 ## Sélectionner une unité
 
-En tant que **joueur défenseur**  
-je veux **sélectionner une unité**  
+En tant que **joueur**  
+je veux **sélectionner une unité pendant le combat**  
 afin de **la déplacer**
 
 Complexité : 1
@@ -266,7 +196,7 @@ Complexité : 1
 
 ## Déplacer une unité
 
-En tant que **joueur défenseur**  
+En tant que **joueur**  
 je veux **glisser une unité vers une autre case**  
 afin de **changer sa position**
 
@@ -274,11 +204,11 @@ Complexité : 2
 
 ---
 
-## Limiter le déplacement
+## Repositionner plusieurs unités
 
-En tant que **système**  
-je veux **limiter la distance de déplacement d’une unité**  
-afin de **respecter ses statistiques**
+En tant que **joueur**  
+je veux **déplacer plusieurs unités pendant le combat**  
+afin de **éviter les attaques**
 
 Complexité : 2
 
@@ -286,21 +216,21 @@ Complexité : 2
 
 # Mort d’unité
 
-## Réduire les PV
+## Voir une unité subir des dégâts
 
-En tant que **système**  
-je veux **réduire les points de vie d'une unité**  
-afin de **suivre les dégâts**
+En tant que **joueur**  
+je veux **voir les points de vie diminuer**  
+afin de **comprendre l’impact des attaques**
 
 Complexité : 1
 
 ---
 
-## Éliminer une unité
+## Voir une unité mourir
 
-En tant que **système**  
-je veux **retirer une unité du plateau lorsque ses PV atteignent 0**  
-afin de **représenter sa mort**
+En tant que **joueur**  
+je veux **voir une unité disparaître lorsque ses PV atteignent 0**  
+afin de **identifier qu’elle est éliminée**
 
 Complexité : 1
 
@@ -308,30 +238,20 @@ Complexité : 1
 
 # Résurrection
 
-## Sélectionner une unité morte
+## Choisir une unité morte
 
 En tant que **joueur**  
-je veux **choisir une unité éliminée**  
-afin de **la ressusciter**
+je veux **sélectionner une unité éliminée**  
+afin de **la ramener au combat**
 
 Complexité : 1
 
 ---
 
-## Payer le coût de résurrection
+## Ressusciter une unité
 
-En tant que **système**  
-je veux **consommer de l’énergie pour la résurrection**  
-afin de **appliquer le coût**
-
-Complexité : 1
-
----
-
-## Faire réapparaître l’unité
-
-En tant que **système**  
-je veux **faire apparaître l’unité dans la zone de départ**  
+En tant que **joueur**  
+je veux **dépenser de l’énergie pour ressusciter une unité**  
 afin de **la remettre en jeu**
 
 Complexité : 2
@@ -340,20 +260,20 @@ Complexité : 2
 
 # Victoire
 
-## Réduire les PV du Commandant
+## Attaquer le Commandant
 
 En tant que **joueur**  
 je veux **attaquer le Commandant ennemi**  
-afin de **le vaincre**
+afin de **réduire ses points de vie**
 
 Complexité : 1
 
 ---
 
-## Déclencher la fin de partie
+## Gagner la partie
 
-En tant que **système**  
-je veux **terminer la partie lorsque le Commandant meurt**  
-afin de **déterminer le vainqueur**
+En tant que **joueur**  
+je veux **gagner lorsque le Commandant ennemi meurt**  
+afin de **remporter le duel**
 
 Complexité : 1

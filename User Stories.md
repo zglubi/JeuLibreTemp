@@ -2,7 +2,7 @@
 
 ---
 
-# Lancer une partie tactique
+# Lancer une partie
 
 En tant que **joueur**  
 je veux **lancer une partie sur une grille**  
@@ -277,3 +277,4 @@ je veux **gagner lorsque le Commandant ennemi meurt**
 afin de **remporter le duel**
 
 Complexité : 1
+

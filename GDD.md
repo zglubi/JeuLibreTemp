@@ -14,10 +14,13 @@ Le jeu repose sur une alternance entre :
     Phase de combat : exécution automatique des attaques + déplacements en temps réel du défenseur.
 
 Le résultat est un duel nerveux, lisible, stratégique et riche en mind games.
+
 2. Gameplay Core
+
 2.1 Objectif
 
 Vaincre le Commandant ennemi en réduisant ses PV à 0.
+
 2.2 Conditions de victoire / défaite
 
     Victoire : le Commandant adverse meurt.
@@ -27,6 +30,7 @@ Vaincre le Commandant ennemi en réduisant ses PV à 0.
     Les unités ordinaires peuvent mourir et être ressuscitées.
 
 3. Plateau de jeu
+
 3.1 Vue et structure
 
     Grille vue du dessus en 3D tactique.
@@ -48,6 +52,7 @@ Vaincre le Commandant ennemi en réduisant ses PV à 0.
     Placement alterné pour créer du mind game dès le début.
 
 4. Unités
+
 4.1 Composition d’équipe
 
 Avant la partie :
@@ -79,6 +84,7 @@ Avant la partie :
     Le joueur choisit où la faire réapparaître (dans une zone définie).
 
 5. Ressource : Énergie
+
 5.1 Fonctionnement
 
     Chaque tour : 10 points d’énergie.
@@ -104,6 +110,7 @@ L’énergie impose des choix tactiques :
     économiser pour un tour explosif ?
 
 6. Structure d’un tour
+
 6.1 Alternance des rôles
 
 Chaque tour alterne :
@@ -129,6 +136,7 @@ L’attaquant :
         capacité spéciale
 
 Le défenseur est passif durant cette phase.
+
 6.3 Phase 2 — Combat (10 secondes)
 
     Les actions programmées se déclenchent automatiquement.
@@ -148,6 +156,7 @@ Pendant ce temps, le défenseur :
     respecte une limite de déplacement par unité
 
 7. Ce qui rend le jeu unique
+
 7.1 Hybridation stratégique
 
     Planification façon échecs / tactique.
@@ -173,12 +182,13 @@ Pendant ce temps, le défenseur :
     Idéal pour le PvP en ligne.
 
 8. User Stories
+
 8.1 Lancer une partie
 
     Lancer une partie sur une grille pour vaincre le Commandant adverse.
     Complexité : 3
 
-9. User Stories — Composition d’équipe
+10. User Stories — Composition d’équipe
 
     Sélectionner une unité dans le roster. (1)
 
@@ -186,7 +196,7 @@ Pendant ce temps, le défenseur :
 
     Confirmer une équipe de 3 unités. (1)
 
-10. User Stories — Placement initial
+11. User Stories — Placement initial
 
     Voir la grille. (1)
 
@@ -198,13 +208,13 @@ Pendant ce temps, le défenseur :
 
     Modifier le placement. (1)
 
-11. User Stories — Gestion de l’énergie
+12. User Stories — Gestion de l’énergie
 
     Voir l’énergie disponible. (1)
 
     Dépenser de l’énergie pour activer des actions. (1)
 
-12. User Stories — Phase de préparation
+13. User Stories — Phase de préparation
 
     Sélectionner une unité active. (1)
 
@@ -216,11 +226,11 @@ Pendant ce temps, le défenseur :
 
     Confirmer les actions. (1)
 
-13. User Stories — Phase de combat
+14. User Stories — Phase de combat
 
     Voir les attaques se déclencher. (2)
 
-14. User Stories — Déplacement en défense
+15. User Stories — Déplacement en défense
 
     Sélectionner une unité. (1)
 
@@ -228,7 +238,7 @@ Pendant ce temps, le défenseur :
 
     Repositionner plusieurs unités. (2)
 
-15. User Stories — Mort et résurrection
+16. User Stories — Mort et résurrection
 
     Voir les PV diminuer. (1)
 
@@ -238,13 +248,13 @@ Pendant ce temps, le défenseur :
 
     Ressusciter une unité. (2)
 
-16. User Stories — Victoire
+17. User Stories — Victoire
 
     Attaquer le Commandant. (1)
 
     Gagner la partie lorsque le Commandant meurt. (1)
 
-17. Vision long terme
+18. Vision long terme
 
     Développer un jeu compétitif moderne, lisible et profond.
 
@@ -258,7 +268,7 @@ Pendant ce temps, le défenseur :
 
         les joueurs tactiques cherchant un gameplay innovant
 
-18. Sprint Planning (3 semaines)
+19. Sprint Planning (3 semaines)
 
 Ce planning vise à livrer une boucle de gameplay complète en trois sprints courts et ciblés. Chaque sprint produit un livrable jouable, permettant d’itérer rapidement.
 Sprint 1 — Setup de la partie & Placement
@@ -286,10 +296,9 @@ User Stories incluses
 
     Modifier le placement (1)
 
-Total complexité
+Total complexité: 11 points
 
-11 points
-Livrable
+Livrable:
 
 À la fin du sprint, le joueur peut :
 
@@ -302,11 +311,15 @@ Livrable
     placer ses unités dans sa zone de départ
 
 Le setup complet de la bataille est fonctionnel.
+
 Sprint 2 — Programmation des actions
 
 Durée : 1 semaine
+
 Objectif : permettre au joueur d’utiliser l’énergie et de programmer ses actions offensives.
-Contenu du sprint
+
+Contenu du sprint:
+
 User Stories incluses
 
     Voir mon énergie (1)
@@ -323,10 +336,9 @@ User Stories incluses
 
     Confirmer mes actions (1)
 
-Total complexité
+Total complexité: 10 points
 
-10 points
-Livrable
+Livrable:
 
 À la fin du sprint, le joueur peut :
 
@@ -339,11 +351,15 @@ Livrable
     valider ses actions
 
 Les actions sont prêtes à être exécutées dans la phase suivante.
+
 Sprint 3 — Combat & Fin de partie
 
 Durée : 1 semaine
+
 Objectif : exécuter les actions, gérer les déplacements défensifs, les dégâts et la victoire.
+
 Contenu du sprint
+
 User Stories incluses
 
     Voir les attaques se déclencher (2)
@@ -366,10 +382,9 @@ User Stories incluses
 
     Gagner la partie (1)
 
-Total complexité
+Total complexité: 14 points
 
-14 points
-Livrable
+Livrable:
 
 À la fin du sprint, le jeu permet :
 
@@ -384,13 +399,18 @@ Livrable
     la victoire lorsque le Commandant ennemi meurt
 
 La boucle de gameplay complète est jouable.
-Résumé des sprints
-Sprint	Objectif	Points
+
+Résumé des sprints:
+
 Sprint 1	Setup + placement	11
+
 Sprint 2	Programmation des actions	10
+
 Sprint 3	Combat + victoire	14
+
 État final après 3 semaines
 
 Un prototype jouable incluant la boucle complète :
 
 Composition d’équipe → Placement → Programmation → Combat → Victoire
+

@@ -402,15 +402,16 @@ La boucle de gameplay complète est jouable.
 
 Résumé des sprints:
 
-Sprint 1	Setup + placement	11
+Sprint 1: Setup + placement (11)
 
-Sprint 2	Programmation des actions	10
+Sprint 2: Programmation des actions (10)
 
-Sprint 3	Combat + victoire	14
+Sprint 3: Combat + victoire (14)
 
 État final après 3 semaines
 
 Un prototype jouable incluant la boucle complète :
 
 Composition d’équipe → Placement → Programmation → Combat → Victoire
+
 

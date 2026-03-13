@@ -1,422 +1,396 @@
-# 🎮 Game Design Document (GDD)
+Game Design Document — Grid Fight Tactics
 
-## 1. Informations générales
+1. Présentation générale
+1.1 Pitch
 
-**Nom du jeu :**  
-**Version du document :** 1.0.0
-**Date :** 09/03/2026
-**Équipe :** 
+Grid Fight Tactics est un jeu de stratégie tactique compétitive en 1v1, combinant planification au tour par tour et action en temps réel.
+Chaque joueur contrôle un Commandant et trois unités spécialisées sur une grille.
+L’objectif : éliminer le Commandant adverse.
 
-| Nom | Rôle |
-|----|----|
-| | |
-| | |
-| | |
+Le jeu repose sur une alternance entre :
 
-**Moteur de jeu :**  
-**Plateforme cible :**  
-**Public cible :**  
-**Durée estimée d'une partie :**
+    Phase de préparation : programmation d’actions offensives.
 
----
+    Phase de combat : exécution automatique des attaques + déplacements en temps réel du défenseur.
 
-# 2. Pitch du jeu
+Le résultat est un duel nerveux, lisible, stratégique et riche en mind games.
+2. Gameplay Core
+2.1 Objectif
 
-## Concept
-Décrire le concept du jeu en quelques phrases.
+Vaincre le Commandant ennemi en réduisant ses PV à 0.
+2.2 Conditions de victoire / défaite
 
-> Exemple :  
-> Un jeu de plateforme où le joueur doit explorer un donjon rempli de pièges pour récupérer un artefact ancien.
+    Victoire : le Commandant adverse meurt.
 
-## Elevator Pitch
-Résumé très court (1 à 2 phrases).
+    Défaite : votre Commandant meurt.
 
----
+    Les unités ordinaires peuvent mourir et être ressuscitées.
 
-# 3. Genre et références
+3. Plateau de jeu
+3.1 Vue et structure
 
-## Genre
-- Plateforme
-- Puzzle
-- RPG
-- FPS
-- Stratégie
-- Autre :  
+    Grille vue du dessus en 3D tactique.
 
-## Inspirations
-Jeux similaires :
+    Deux zones de départ opposées en diagonale.
 
-- Jeu 1
-- Jeu 2
-- Jeu 3
+    Cases permettant :
 
-Décrire ce qui inspire votre jeu.
+        déplacements
 
----
+        attaques directionnelles
 
-# 4. Gameplay
+        ciblage précis
 
-## Objectif du joueur
+3.2 Placement initial
 
-Que doit faire le joueur pour gagner ?
+    Chaque joueur place ses 3 unités dans sa zone.
 
-Exemples :
-- Atteindre la sortie
-- Battre un boss
-- Survivre un certain temps
-- Obtenir un score maximum
+    Placement alterné pour créer du mind game dès le début.
 
----
+4. Unités
+4.1 Composition d’équipe
 
-## Conditions de victoire
+Avant la partie :
 
----
+    Choisir 3 unités dans un roster.
 
-## Conditions de défaite
+    Chaque unité possède :
 
----
+        statistiques (PV, vitesse, portée…)
 
-## Boucle de gameplay (Core Loop)
+        attaques directionnelles
 
-Décrire le cycle principal du jeu.
+        attaques ciblées
 
-Exemple :
+        capacités spéciales
 
-1. Explorer
-2. Combattre
-3. Collecter des ressources
-4. Améliorer son personnage
-5. Continuer l'exploration
+4.2 Commandant
 
----
+    Unité centrale.
 
-# 5. Mécaniques de jeu
+    Faible mobilité mais capacités puissantes.
 
-## Déplacements
+    Sa mort = fin de partie.
 
-- marcher
-- courir
-- sauter
-- voler
-- autre
+4.3 Mort et résurrection
 
----
+    Une unité morte peut être ramenée à la vie en dépensant de l’énergie.
 
-## Interactions
+    Le joueur choisit où la faire réapparaître (dans une zone définie).
 
-Que peut faire le joueur avec le monde ?
+5. Ressource : Énergie
+5.1 Fonctionnement
 
-Exemples :
+    Chaque tour : 10 points d’énergie.
 
-- ouvrir des portes
-- ramasser des objets
-- parler à des NPC
-- activer des mécanismes
+    Dépenses possibles :
 
----
+        activer une unité
 
-## Combat (si applicable)
+        lancer une attaque
 
-Type de combat :
+        utiliser une capacité
 
-- corps à corps
-- distance
-- magie
+        ressusciter une unité
 
-Détails :
+5.2 Philosophie
 
----
+L’énergie impose des choix tactiques :
 
-## Système de score / progression
+    attaquer plus fort ?
 
-Exemples :
+    ressusciter une unité clé ?
 
-- points
-- niveaux
-- compétences
-- amélioration d’équipement
+    économiser pour un tour explosif ?
 
----
+6. Structure d’un tour
+6.1 Alternance des rôles
 
-# 6. Personnages
+Chaque tour alterne :
 
-## Joueur
+    un attaquant
 
-Nom :  
-Description :  
-Capacités :
+    un défenseur
 
-- capacité 1
-- capacité 2
-- capacité 3
+6.2 Phase 1 — Préparation (Attaquant)
 
----
+L’attaquant :
 
-## Ennemis
+    choisit quelles unités activer
 
-### Ennemi 1
+    dépense son énergie
 
-Description :  
-Comportement :  
-Attaques :
+    programme des actions :
 
----
+        attaque directionnelle
 
-### Ennemi 2
+        attaque ciblée
 
-Description :  
-Comportement :  
-Attaques :
+        capacité spéciale
 
----
+Le défenseur est passif durant cette phase.
+6.3 Phase 2 — Combat (10 secondes)
 
-## Boss (si applicable)
+    Les actions programmées se déclenchent automatiquement.
 
-Description :
+    Attaques avec startup, durée, cooldown.
 
----
+    Certaines attaques peuvent persister ou se répéter.
 
-# 7. Monde / Univers
+Pendant ce temps, le défenseur :
 
-## Histoire (Lore)
+    déplace ses unités en temps réel (drag & drop)
 
-Décrire l’univers du jeu.
+    esquive
 
----
+    se repositionne
 
-## Environnement
+    respecte une limite de déplacement par unité
 
-Exemples :
+7. Ce qui rend le jeu unique
+7.1 Hybridation stratégique
 
-- forêt
-- donjon
-- ville
-- espace
-- laboratoire
+    Planification façon échecs / tactique.
 
----
+    Exécution façon action / esquive.
 
-## Niveaux
+7.2 Mind games
 
-### Niveau 1
-Description :
+    L’attaquant doit anticiper les mouvements du défenseur.
 
-### Niveau 2
-Description :
+    Le défenseur doit lire les intentions de l’attaquant.
 
-### Niveau 3
-Description :
+7.3 Accessibilité
 
----
+    Règles simples.
 
-# 8. Interface utilisateur (UI)
+    Profondeur émergente.
 
-## HUD (Head-Up Display)
+7.4 Format compétitif
 
-Éléments affichés :
+    Parties rapides.
 
-- barre de vie
-- score
-- inventaire
-- mini carte
+    Idéal pour le PvP en ligne.
 
----
+8. User Stories
+8.1 Lancer une partie
 
-## Menus
+    Lancer une partie sur une grille pour vaincre le Commandant adverse.
+    Complexité : 3
 
-### Menu principal
+9. User Stories — Composition d’équipe
 
-Options :
+    Sélectionner une unité dans le roster. (1)
 
-- jouer
-- options
-- quitter
+    Retirer une unité sélectionnée. (1)
 
----
+    Confirmer une équipe de 3 unités. (1)
 
-### Menu pause
+10. User Stories — Placement initial
 
-Options :
+    Voir la grille. (1)
 
-- reprendre
-- paramètres
-- quitter
+    Voir la zone de placement. (1)
 
----
+    Sélectionner une unité non placée. (1)
 
-# 9. Direction artistique
+    Placer une unité sur une case valide. (1)
 
-## Style graphique
+    Modifier le placement. (1)
 
-- Pixel art
-- Low poly
-- Cartoon
-- Réaliste
-- Autre :
+11. User Stories — Gestion de l’énergie
 
----
+    Voir l’énergie disponible. (1)
 
-## Palette de couleurs
+    Dépenser de l’énergie pour activer des actions. (1)
 
-Décrire les couleurs dominantes du jeu.
+12. User Stories — Phase de préparation
 
----
+    Sélectionner une unité active. (1)
 
-## Références visuelles
+    Programmer une attaque directionnelle. (2)
 
-Images ou jeux de référence.
+    Programmer une attaque ciblée. (2)
 
----
+    Utiliser une capacité. (2)
 
-# 10. Audio
+    Confirmer les actions. (1)
 
-## Musique
+13. User Stories — Phase de combat
 
-Type de musique :
+    Voir les attaques se déclencher. (2)
 
-- ambiance
-- action
-- exploration
+14. User Stories — Déplacement en défense
 
----
+    Sélectionner une unité. (1)
 
-## Effets sonores
+    Déplacer une unité. (2)
 
-Exemples :
+    Repositionner plusieurs unités. (2)
 
-- saut
-- attaque
-- explosion
-- collecte d’objet
+15. User Stories — Mort et résurrection
 
----
+    Voir les PV diminuer. (1)
 
-# 11. Technique
+    Voir une unité mourir. (1)
 
-## Moteur de jeu
+    Choisir une unité morte. (1)
 
-Exemple :
-- Unity
-- Unreal
-- Godot
+    Ressusciter une unité. (2)
 
----
+16. User Stories — Victoire
 
-## Langage de programmation
+    Attaquer le Commandant. (1)
 
-Exemple :
-- C#
-- C++
-- GDScript
+    Gagner la partie lorsque le Commandant meurt. (1)
 
----
+17. Vision long terme
 
-## Plateforme cible
+    Développer un jeu compétitif moderne, lisible et profond.
 
-- PC
-- Web
-- Mobile
-- Console
+    Mélanger réflexion, anticipation, exécution, lecture de l’adversaire.
 
----
+    Proposer un format idéal pour :
 
-# 12. Gestion du projet (Scrum)
+        l’e-sport
 
-## Durée des sprints
+        les duels rapides
 
-Exemple :  
-Sprint = 1 semaine
+        les joueurs tactiques cherchant un gameplay innovant
 
----
+18. Sprint Planning (3 semaines)
 
-## Product Backlog (exemples)
+Ce planning vise à livrer une boucle de gameplay complète en trois sprints courts et ciblés. Chaque sprint produit un livrable jouable, permettant d’itérer rapidement.
+Sprint 1 — Setup de la partie & Placement
 
+Durée : 1 semaine
+Objectif : permettre au joueur de lancer une partie et de placer ses unités.
+Contenu du sprint
+User Stories incluses
 
-1. Déplacement joueur : 1
-2. Déplacement cartes : 1
-10. Tour par tour : 1
-9. Ressources : 2
+    Lancer une partie (3)
 
-3. Attaque cartes : 2
-11. Interaction attaques : 2
-12. Interaction cartes : 1
-15. Réanimation cartes : 4
-4. IA Ennemi : 4
+    Sélectionner une unité (1)
 
-6. Deck building : 8
-7. Conception cartes : 3
-8. Environnement jeu : 6
-16. UI : 3
-13. Victoire / Défaite : 3
-14. Ecran de fin : 4
-5. Menu : 5
-16. UI : 3
-17. Pause : 5
-18. Paramètres : 9
+    Retirer une unité (1)
 
+    Confirmer mon équipe (1)
 
+    Voir la grille (1)
 
+    Voir ma zone de placement (1)
 
+    Sélectionner une unité à placer (1)
 
+    Placer une unité (1)
 
+    Modifier le placement (1)
 
+Total complexité
 
+11 points
+Livrable
 
+À la fin du sprint, le joueur peut :
 
-| User Story | Priorité |
-|----|----|
-| En tant que joueur je peux me déplacer | Haute |
-| En tant que joueur je peux sauter | Haute |
-| En tant que joueur je peux attaquer | Moyenne |
-| En tant que joueur je peux gagner la partie | Haute |
+    lancer une partie
 
----
+    composer une équipe de 3 unités
 
-## Roadmap
+    visualiser la grille
 
-### Sprint 1
-- Prototype
-- Déplacement
-- Caméra
+    placer ses unités dans sa zone de départ
 
-### Sprint 2
-- Ennemis
-- Combat
-- Score
+Le setup complet de la bataille est fonctionnel.
+Sprint 2 — Programmation des actions
 
-### Sprint 3
-- UI
-- Sons
-- Menu
+Durée : 1 semaine
+Objectif : permettre au joueur d’utiliser l’énergie et de programmer ses actions offensives.
+Contenu du sprint
+User Stories incluses
 
----
+    Voir mon énergie (1)
 
-# 13. Tests
+    Dépenser de l’énergie (1)
 
-## Tests fonctionnels
+    Sélectionner une unité active (1)
 
-- vérifier les déplacements
-- vérifier les collisions
-- vérifier le score
+    Programmer une attaque directionnelle (2)
 
----
+    Programmer une attaque ciblée (2)
 
-## Tests utilisateur
+    Utiliser une capacité (2)
 
-Faire tester le jeu par des joueurs.
+    Confirmer mes actions (1)
 
-Feedback attendu :
-- difficulté
-- fun
-- compréhension
+Total complexité
 
----
+10 points
+Livrable
 
-# 14. Améliorations futures
+À la fin du sprint, le joueur peut :
 
-Idées pour améliorer le jeu :
+    gérer son énergie
 
-- nouveaux niveaux
-- nouveaux ennemis
-- mode multijoueur
-- nouveaux objets
+    sélectionner des unités actives
+
+    programmer des attaques directionnelles, ciblées ou des capacités
+
+    valider ses actions
+
+Les actions sont prêtes à être exécutées dans la phase suivante.
+Sprint 3 — Combat & Fin de partie
+
+Durée : 1 semaine
+Objectif : exécuter les actions, gérer les déplacements défensifs, les dégâts et la victoire.
+Contenu du sprint
+User Stories incluses
+
+    Voir les attaques se déclencher (2)
+
+    Sélectionner une unité en défense (1)
+
+    Déplacer une unité (2)
+
+    Repositionner plusieurs unités (2)
+
+    Voir une unité subir des dégâts (1)
+
+    Voir une unité mourir (1)
+
+    Choisir une unité morte (1)
+
+    Ressusciter une unité (2)
+
+    Attaquer le Commandant (1)
+
+    Gagner la partie (1)
+
+Total complexité
+
+14 points
+Livrable
+
+À la fin du sprint, le jeu permet :
+
+    l’exécution automatique des attaques
+
+    les déplacements défensifs en temps réel
+
+    la gestion des dégâts et de la mort
+
+    la résurrection d’unités
+
+    la victoire lorsque le Commandant ennemi meurt
+
+La boucle de gameplay complète est jouable.
+Résumé des sprints
+Sprint	Objectif	Points
+Sprint 1	Setup + placement	11
+Sprint 2	Programmation des actions	10
+Sprint 3	Combat + victoire	14
+État final après 3 semaines
+
+Un prototype jouable incluant la boucle complète :
+
+Composition d’équipe → Placement → Programmation → Combat → Victoire
